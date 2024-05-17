@@ -1,0 +1,56 @@
+﻿@model AirlineDto
+@{
+}
+
+<div class="row"
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">New Airline</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Name</label>
+                <div class="col-sm8">
+                    <input class="form-control" asp-for="Name">
+                    <span asp-validation-for="Name" class="tect-danger"></span>
+                </div>
+             <div>
+
+                 <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">ShortName</label>
+                <div class="col-sm8">
+                    <input class="form-control" asp-for="ShortName">
+                    <span asp-validation-for="ShortName" class="tect-danger"></span>
+                </div>
+
+               <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">AirlineCode</label>
+                <div class="col-sm8">
+                    <input class="form-control" asp-for="AirlineCode">
+                    <span asp-validation-for="AirlineCode" class="tect-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Location</label>
+                <div class="col-sm8">
+                    <input class="form-control" asp-for="Location">
+                    <span asp-validation-for="Location" class="tect-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Image</label>
+                <div class="col-sm8">
+                    <input class="form-control" asp-for="imageFile">
+                    <span asp-validation-for="imageFile" class="tect-danger"></span>
+                </div>
+
+                 <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid" style="margin-top: 100px;">  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid" style="margin-top: 100px;">  <a class="btn btn-outline-primary" asp-controller="Airline"
+                    asp-action="Index" role="button"> Cancel </a>
+                </div>
+                </div>                   
+   
+        </form>
+    </div>
+</div>

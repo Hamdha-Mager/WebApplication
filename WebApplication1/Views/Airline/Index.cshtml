@@ -1,0 +1,56 @@
+﻿@model List<Airline>
+@{
+}
+
+<h2 class="text-center mb-5">List of Airline</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="Airline" asp-action="Create"> Add Airline</a>
+    </div>
+    <div class="col">
+
+    </div>
+    </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>ShortName</th>
+            <th>AirlineCode</th>
+            <th>Location</th>
+            <th>CreatedDate</th>
+            <th>Image</th>
+            <th>Active</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var airline in Model)
+        {
+            <tr>
+                <td>@airline.Id</td>
+                <td>@airline.Name</td>
+                <td>@airline.ShortName</td>
+                <td>@airline.AirlineCode</td>
+                <td>@airline.Location</td>
+                <td>@airline.CreatedDate.ToString("mm/dd/yyyy")</td>
+                <td><img src="/airline/@airline.imageFileName" width="100"/></td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="Airline" asp-action="Activate" 
+                    asp-route-id="@airline.Id">Active</a>
+                </td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="Airline" asp-action="Edit"
+                       asp-route-id="@airline.Id">Edit</a>
+                </td>
+                <td style ="white-space:nowrap">
+                    <a class="btn btn-danger btn-sm" asp-controller="Airline" asp-action="Delete"
+                    asp-route-id="@airline.Id" onclick="return confirm('Are you sure?')">Delete</a >
+            </tr>
+        }
+    </tbody>
+</table>
